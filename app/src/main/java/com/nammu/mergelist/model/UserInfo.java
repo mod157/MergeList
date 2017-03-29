@@ -17,8 +17,18 @@ public class UserInfo extends RealmObject {
     private int Number;
     private String Name;
     private String PhoneNumber;
-    private RealmResults<UserMenuInfo> UserMenu;
-
+   // private RealmResults<UserMenuInfo> UserMenu;
+    public UserInfo(){}
+   public UserInfo(int num, String name, String phoneNumber){
+        Number = num;
+        Name = name;
+        PhoneNumber = phoneNumber;
+    }
+    public void setNumber(int num){
+        Number = num;
+    }
+    public int getNumber(){return Number;
+    }
     public void setName(String name){
         Name = name;
     }
@@ -31,10 +41,10 @@ public class UserInfo extends RealmObject {
     public String getPhoneNumber(){
         return PhoneNumber;
     }
-    public void setUserMenu(RealmResults<UserMenuInfo> userMenu){
+   /* public void setUserMenu(RealmResults<UserMenuInfo> userMenu){
         UserMenu = userMenu;
     }
     public RealmResults<UserMenuInfo> getUserMenu(Context context, int id, String name){
         return RealmDB.selete(context, id, name);
-    }
+    }*/
 }

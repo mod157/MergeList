@@ -30,7 +30,7 @@ public class SLog {
         if (debug)Log.v(tagLog(),message); }
 
     public static String tagLog(){
-        String tag = "ARHunt";
+        String tag = "MergeList";
         StackTraceElement ste = Thread.currentThread().getStackTrace()[4];
         StringBuilder sb = new StringBuilder();
         sb.append(tag);

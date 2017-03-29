@@ -13,6 +13,7 @@
        android:padding="10dp">
 
    </android.support.v7.widget.RecyclerView>
+
     <com.melnykov.fab.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -22,7 +23,8 @@
         android:scaleType="fitCenter"
         app:fab_colorNormal="@color/fabPrimary"
         app:fab_colorPressed="@color/fabPressed"
-        app:fab_colorRipple="@color/fabRipple"/>
-       <!-- android:src="@drawable/switch_custom_image" />
+        app:fab_colorRipple="@color/fabRipple"
+        android:src="@drawable/add_white_24" />
+    <!-- android:src="@drawable/switch_custom_image" />
 -->
 </FrameLayout>
