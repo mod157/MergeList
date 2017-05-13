@@ -17,6 +17,11 @@ public class UserInfo extends RealmObject {
     private int Number;
     private String Name;
     private String PhoneNumber;
+    private static int memberNumber = 0;
+    public static int countNumber(){
+        memberNumber++;
+        return memberNumber;
+    }
    // private RealmResults<UserMenuInfo> UserMenu;
     public UserInfo(){}
    public UserInfo(int num, String name, String phoneNumber){

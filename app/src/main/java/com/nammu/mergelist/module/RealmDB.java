@@ -34,8 +34,27 @@ public class RealmDB {
         });
         realm.close();
     }
-
+    public static void insert(Context context, final UserMenuInfo data){
+        Realm realm = realmInit(context);
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                realm.copyToRealm(data);
+            }
+        });
+        realm.close();
+    }
     public static void delete(Context context, final UserInfo data){
+        Realm realm = realmInit(context);
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                data.deleteFromRealm();
+            }
+        });
+    }
+
+    public static void delete(Context context, final UserMenuInfo data){
         Realm realm = realmInit(context);
         realm.executeTransaction(new Realm.Transaction() {
             @Override
@@ -47,7 +66,7 @@ public class RealmDB {
 
     public static RealmResults<UserMenuInfo> selete(Context context, int id, String name){
         Realm realm = RealmDB.realmInit(context);
-        return realm.where(UserMenuInfo.class).equalTo("Number",id).equalTo("Name",name).findAll();
+        return realm.where(UserMenuInfo.class).equalTo("MemberNumber",id+"").equalTo("Name",name).findAll();
     }
 
 

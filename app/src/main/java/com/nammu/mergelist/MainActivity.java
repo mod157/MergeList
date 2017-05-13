@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.nammu.mergelist.model.UserMenuInfo;
 import com.nammu.mergelist.module.RealmDB;
 import com.nammu.mergelist.model.UserInfo;
 import com.nammu.mergelist.module.SLog;
@@ -16,6 +17,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.realm.Realm;
+import io.realm.RealmObject;
 
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.rv_list)
@@ -42,8 +44,15 @@ public class MainActivity extends AppCompatActivity {
         setRecyclerListView();
     }
     private void setTestData(){
-        UserInfo info = new UserInfo(1, "이순재", "01047308395");
+        UserInfo info = new UserInfo(UserInfo.countNumber(), "이순재", "01047308395");
         RealmDB.insertOrUpdate(this,info);
+        UserMenuInfo menuInfo1 = new UserMenuInfo();
+        menuInfo1.setItemNumber(UserMenuInfo.countNumber());
+        menuInfo1.setNumber("1");
+        menuInfo1.setName("이순재");
+        menuInfo1.setTitle("사아아");
+        menuInfo1.setContext("todotodtdo");
+        RealmDB.insert(this,menuInfo1);
     }
 
     private void setRecyclerListView() {

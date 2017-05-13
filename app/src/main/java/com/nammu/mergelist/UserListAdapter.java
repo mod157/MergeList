@@ -1,6 +1,8 @@
 package com.nammu.mergelist;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,11 +23,11 @@ import butterknife.ButterKnife;
 
 public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.ViewHolder>  {
     private ArrayList<UserInfo> list;
-    private Context context;
+    private Activity activity;
 
-    UserListAdapter(ArrayList<UserInfo> list, Context context){
+    UserListAdapter(ArrayList<UserInfo> list, Activity activity){
         this.list = list;
-        this.context = context;
+        this.activity = activity;
     }
 
     @Override
@@ -56,7 +58,10 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.ViewHo
 
         @Override
         public void onClick(View v) {
-            Toast.makeText(context, tv_friendName.getText().toString(),Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity.getApplicationContext(), tv_friendName.getText().toString(),Toast.LENGTH_SHORT).show();
+            UserDialog dialog = new UserDialog(activity, list.get(getPosition()));
+            //UserDialog dialog = new UserDialog(context);
+            dialog.show();
         }
     }
 }

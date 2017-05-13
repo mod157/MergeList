@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">MergeList</string>
     <string name="add_textViewName">이름</string>
-
+    <string name="dialog_ok">확인</string>
+    <string name="dialog_cancel">취소</string>
 </resources>
